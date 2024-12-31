@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Shop</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slider {
+            position: relative;
+            max-width: 1200px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .navigation button {
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            font-size: 20px;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .navigation button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        footer p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgb(234, 235, 236);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #57c01a;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .product-card {
+            width: 300px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card h3 {
+            margin: 10px;
+            font-size: 20px;
+        }
+        .product-card p {
+            margin: 10px;
+            color: #555;
+        }
+        .details {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        .details h3 {
+            margin-top: 0;
+        }
+        .details img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .details a {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #25D366;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .details a img {
+            width: 25px;
+            margin-right: 10px;
+        }
+        .details button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .details button:hover {
+            background: #0056b3;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            header h1 {
+                font-size: 20px;
+            }
+            .product-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png.jpeg" alt="Mobile Shop Logo">
+        </div>
+        <h1>Welcome to Our Mobile Shop!</h1>
+        <p>Your one-stop destination for all mobile needs</p>
+    </header>
+    <div class="slider">
+        <div class="slides">
+            <img src="aaa.png.png" alt="Shop Photo 1">
+            <img src="bbb.png.jpeg" alt="Shop Photo 2">
+            <img src="ccc.png.jpeg" alt="Shop Photo 3">
+            <img src="ddd.png.jpeg" alt="Shop Photo 4">
+        </div>
+        <div class="navigation">
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>     
+     <section>
+        <h2>Who We Are</h2>
+        <p>Our journey began with a vision: to make high-quality mobile technology accessible and affordable for everyone. Over the years, we have built a reputation for excellence, thanks to our commitment to providing reliable products, expert advice, and exceptional customer service. We are passionate about technology and dedicated to helping our customers stay connected in today's fast-paced world.</p>
+    </section>
+
+    <section>
+        <h2>What We Offer</h2>
+        <ul>
+            <li><strong>A Wide Range of Mobile Phones:</strong> We stock the latest smartphones from top brands like Apple, Samsung, Xiaomi, OnePlus, and more. Whether you're looking for a high-performance flagship model, a budget-friendly option, or something in between, we've got you covered.</li>
+            <li><strong>Mobile Accessories:</strong> Enhance your mobile experience with our extensive range of accessories, including cases, screen protectors, chargers, earphones, and power banks. All accessories are sourced from trusted manufacturers to ensure quality and durability.</li>
+            <li><strong>Repair and Maintenance Services:</strong> Got a cracked screen, battery issues, or software glitches? Our skilled technicians are here to help. We use genuine parts and the latest tools to ensure your device is repaired to the highest standard.</li>
+            <li><strong>Trade-In and Upgrade Services:</strong> Looking to upgrade your phone? Trade in your old device with us and get a great deal on your new purchase. Our trade-in process is quick, easy, and transparent.</li>
+            <li><strong>Expert Advice:</strong> Not sure which phone or accessory is right for you? Our friendly team is always on hand to provide personalized recommendations. We take the time to understand your needs and preferences to ensure you make the right choice.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li><strong>Quality You Can Trust:</strong> We only sell genuine products from reputable brands, so you can shop with confidence.</li>
+            <li><strong>Competitive Prices:</strong> We believe in offering great value for money. Our prices are competitive, and we regularly run promotions and discounts to help you save even more.</li>
+            <li><strong>Exceptional Customer Service:</strong> Your satisfaction is our top priority. Our team is committed to providing a seamless shopping experience from start to finish.</li>
+            <li><strong>Convenient Location:</strong> Our shop is conveniently located at 123 Mobile Street, City Name, making it easy for you to drop by and explore our offerings.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Our Commitment to Sustainability</h2>
+        <p>We care about the environment and strive to minimize our impact through sustainable practices:</p>
+        <ul>
+            <li>We encourage customers to recycle their old devices responsibly through our recycling program.</li>
+            <li>Our shop uses energy-efficient lighting and eco-friendly packaging wherever possible.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Customer Testimonials</h2>
+        <blockquote>*"The team at MANISH TELECOM was incredibly helpful in guiding me to the perfect phone. I love my new device!"*</blockquote>
+        <blockquote>*"Fast and reliable repair service. They fixed my cracked screen in under an hour! Highly recommended."*</blockquote>
+        <blockquote>*"Great prices and a fantastic range of products. I'll definitely be coming back for more accessories."*</blockquote>
+    </section>
+
+    <section>
+        <h2>Our Commitment to Sustainability</h2>
+        <p>We care about the environment and strive to minimize our impact through sustainable practices:</p>
+        <ul>
+            <li>We encourage customers to recycle their old devices responsibly through our recycling program.</li>
+            <li>Our shop uses energy-efficient lighting and eco-friendly packaging wherever possible.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Customer Testimonials</h2>
+        <blockquote>*"The team at MANISH TELECOM was incredibly helpful in guiding me to the perfect phone. I love my new device!"*</blockquote>
+        <blockquote>*"Fast and reliable repair service. They fixed my cracked screen in under an hour! Highly recommended."*</blockquote>
+        <blockquote>*"Great prices and a fantastic range of products. I'll definitely be coming back for more accessories."*</blockquote>
+    </section>
+
+
+    </div>
+    <section>
+        <h2>New Products</h2>
+        <div class="product">
+            <div class="product-card" data-name="KACHAODA A26" data-price="₹1000" data-image="kach (1).png">
+                <img src="kach (1).png" alt="KACHAODA A26">
+                <h3>KACHAODA A26</h3>
+                <p>₹1000</p>
+            </div>
+            <div class="product-card" data-name="ITEL Power126" data-price="₹1350" data-image="kach (2).png">
+                <img src="kach (2).png" alt="ITEL Power126">
+                <h3>ITEL Power126</h3>
+                <p>Price: ₹1350</p>
+            </div>
+            <div class="product-card" data-name="CAUL MINI 4" data-price="₹1000" data-image="kach (3).png">
+                <img src="kach (3).png" alt="CAUL MINI 4">
+                <h3>CAUL MINI 4</h3>
+                <p>Price: ₹1000</p>
+            </div>
+        </div>
+    </section>
+    <div class="overlay"></div>
+    <div class="details">
+        <h3 id="product-name"></h3>
+        <img id="product-image" src="" alt="Product Image">
+        <p id="product-price"></p>
+        <a href="https://wa.me/9935796634" target="_blank">
+            <img src="WHAT.png" alt="WhatsApp"> Contact on WhatsApp
+        </a>
+        <button onclick="closeDetails()">Close</button>
+    </div>
+    <footer>
+        <p><strong>Address:</strong> Radhnagar andauli road fatehpur</p>
+        <p><strong>Contact Us:</strong> 9935796634 | <a href="mailto:info@mobileshop.com" style="color: #FFD700; text-decoration: none;">info@mobileshop.com</a></p>
+        <p>&copy; 1999 Mobile Shop. All rights reserved.</p>
+    </footer>
+    <script>
+        const slides = document.querySelector('.slides');
+        const slideImages = document.querySelectorAll('.slides img');
+        const totalSlides = slideImages.length;
+        let currentIndex = 0;
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlider();
+        });
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        });
+        function updateSlider() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        const productCards = document.querySelectorAll('.product-card');
+        const details = document.querySelector('.details');
+        const overlay = document.querySelector('.overlay');
+        const productName = document.getElementById('product-name');
+        const productImage = document.getElementById('product-image');
+        const productPrice = document.getElementById('product-price');
+
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                productName.textContent = card.getAttribute('data-name');
+                productImage.src = card.getAttribute('data-image');
+                productPrice.textContent = `Price: ${card.getAttribute('data-price')}`;
+                details.style.display = 'block';
+                overlay.style.display = 'block';
+            });
+        });
+
+        function closeDetails() {
+            details.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+
+    </script>
+</body>
+</html>
